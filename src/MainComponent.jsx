@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import VideoBackground from "./videoBackground.jsx";
+import VideoBackground from "./VideoBackground.jsx";
 import VideoTitle from "./VideoTitle.jsx";
 
 function MainComponent() {
