@@ -10,7 +10,7 @@ function MainComponent() {
 
   if (!nowPlayingMovies || nowPlayingMovies.length === 0) return null;
 
-  const { id, original_title, overview, title } = nowPlayingMovies[7];
+  const { id, original_title, overview, title } = nowPlayingMovies[12];
 
 
   return (

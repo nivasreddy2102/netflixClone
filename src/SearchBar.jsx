@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import lang from "./utils/languageConstants";
 import { API_OPTIONS } from "./utils/Images";
@@ -12,12 +12,15 @@ const SearchBar = () => {
     (store) => store.movies.nowSearchMovies
   );
 
+  const [searched, setSearched] = useState(false);
   const searchData = useRef("");
   const text = lang[language] || lang.en;
 
   const handleSearch = async () => {
-    const query = searchData.current?.value;
+    const query = searchData.current?.value?.trim();
     if (!query) return;
+
+    setSearched(true);
 
     try {
       const res = await fetch(
@@ -28,9 +31,10 @@ const SearchBar = () => {
       );
 
       const data = await res.json();
-      dispatch(addnowSearchMovies(data.results));
+      dispatch(addnowSearchMovies(data.results || []));
     } catch (error) {
       console.error("TMDb Search Error:", error);
+      dispatch(addnowSearchMovies([]));
     }
   };
 
@@ -39,50 +43,35 @@ const SearchBar = () => {
       {/* SEARCH BAR */}
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="
-          flex items-center
-          bg-black/80 backdrop-blur-sm
-          rounded-lg overflow-hidden shadow-2xl
-          border border-gray-700
-          transition-all duration-300
-          hover:border-red-600
-        "
+        className="flex items-center bg-black/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-2xl border border-gray-700 hover:border-red-600"
       >
         <input
           ref={searchData}
           type="text"
           placeholder={text.aiSearchPlaceholder}
-          className="
-            w-full
-            px-4 md:px-5 py-3 md:py-3.5
-            text-white text-base md:text-lg
-            bg-transparent outline-none
-            placeholder-gray-400 focus:placeholder-gray-500
-          "
+          className="w-full px-4 py-3 text-white bg-transparent outline-none placeholder-gray-400"
         />
 
         <button
-          onClick={handleSearch}
           type="submit"
-          className="
-            bg-gradient-to-r from-red-600 to-red-700
-            hover:from-red-700 hover:to-red-800
-            text-white px-4 md:px-8
-            py-3 md:py-3.5
-            text-sm md:text-lg font-semibold
-            transition-all duration-300
-            hover:shadow-lg hover:shadow-red-600/50
-            
-          "
+          onClick={handleSearch}
+          className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 font-semibold"
         >
           {text.search}
         </button>
       </form>
 
-      {/* SEARCH RESULTS DROPDOWN */}
-      {searchMovies && searchMovies.length > 0 && (
-        <div className="absolute top-full left-0 right-0 z-50 mt-2 sm:mt-3 px-0 sm:px-0">
+      {/* RESULTS */}
+      {searched && searchMovies?.length > 0 && (
+        <div className="absolute top-full left-0 right-0 z-50 mt-2">
           <SearchSuggestion />
+        </div>
+      )}
+
+      {/* NO RESULTS MESSAGE */}
+      {searched && searchMovies?.length === 0 && (
+        <div className="mt-3 text-center text-gray-400 text-sm">
+          🎬 Movie is not present. Please search for other movies.
         </div>
       )}
     </div>

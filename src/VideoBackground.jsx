@@ -43,11 +43,10 @@ function VideoBackground({ movieId }) {
       {/* Mute/Unmute button */}
       <button
         onClick={() => setIsMuted(!isMuted)}
-        className="absolute bottom-10 right-4 sm:bottom-12 sm:right-10 z-20 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 transition text-lg"
+        className=" cursor-pointer absolute bottom-10 right-4 sm:bottom-12 sm:right-10 z-20 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 transition text-lg"
       >
         {isMuted ? "🔇" : "🔊"}
       </button>
-
       {/* Video iframe */}
       <iframe
         className="
