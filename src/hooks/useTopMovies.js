@@ -15,7 +15,6 @@ const top=useSelector((state)=>state.movies.nowTopMovies)
       );
       const data = await response.json();
       dispatch(addnowTopMovies(data.results))
-      // console.log(data.results); // movies array
     } catch (error) {
       console.error("Error fetching movies:", error);
     }

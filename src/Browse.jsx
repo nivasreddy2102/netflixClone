@@ -13,7 +13,7 @@ import Search from "./Search";
 
 function Browse() {
   const search=useSelector((state)=>state.search.toggleSearch);
-  // console.log(search)
+ 
   playingMovies();
   popularMovies();
   topMovies();

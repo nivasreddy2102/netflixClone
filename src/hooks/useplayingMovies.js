@@ -13,7 +13,6 @@ const playing=useSelector((state)=>state.movies.nowPlayingMovies)
       );
       const data = await response.json();
       dispatch(addnowPlayingMovies(data.results))
-      // console.log(data.results); // movies array
     } catch (error) {
       console.error("Error fetching movies:", error);
     }

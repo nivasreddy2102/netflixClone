@@ -12,7 +12,6 @@ function MainComponent() {
 
   const { id, original_title, overview, title } = nowPlayingMovies[7];
 
-  // console.log(id);
 
   return (
     <div>

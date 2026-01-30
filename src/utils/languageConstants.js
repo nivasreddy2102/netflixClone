@@ -17,5 +17,4 @@ const lang={
     },
 }
 
-console.log(lang["en"].search);
 export default lang;

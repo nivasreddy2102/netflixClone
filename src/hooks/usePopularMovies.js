@@ -14,7 +14,7 @@ const popular=useSelector((state)=>state.movies.nowPopularMovies)
       );
       const data = await response.json();
       dispatch(addnowPopularMovies(data.results))
-      // console.log(data.results); // movies array
+
     } catch (error) {
       console.error("Error fetching movies:", error);
     }

@@ -14,7 +14,6 @@ const upcoming=useSelector((state)=>state.movies.nowUpcomingMovies)
       );
       const data = await response.json();
       dispatch(addnowUpcomingMovies(data.results))
-      // console.log(data.results); // movies array
     } catch (error) {
       console.error("Error fetching movies:", error);
     }
