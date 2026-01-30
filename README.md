@@ -1,16 +1,28 @@
-# React + Vite
+# netflixClone
+Netflix clone built with React featuring movie browsing, search, and responsive UI using TMDB API.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# 🎬 Netflix Clone
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A Netflix-inspired web application built using React that allows users to browse movies, view trailers, and explore different categories using real-time movie data.
 
-## React Compiler
+## 🚀 Features
+- 🎥 Browse trending, popular, and now-playing movies
+- 🔍 Movie search functionality
+- 🖼️ Dynamic movie banners & cards
+- ▶️ Trailer playback
+- 🌐 Language selection
+- 📱 Fully responsive design
+- ⚡ Optimized UI similar to Netflix
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
+**Frontend**
+- React.js
+- Redux Toolkit
+- Tailwind CSS
 
-## Expanding the ESLint configuration
+**APIs & Services**
+- TMDB (The Movie Database) API
+- Firebase (Authentication & Hosting)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
